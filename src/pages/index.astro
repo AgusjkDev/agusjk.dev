@@ -1,20 +1,7 @@
 ---
-import { siteConfig } from "@/config";
-
-import "@/styles/globals.css";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{siteConfig.title}</title>
-    </head>
-
-    <body class="bg-background font-sans text-foreground antialiased">
-        <main>
-            <span>Index</span>
-        </main>
-    </body>
-</html>
+<Layout>
+    <span>Index</span>
+</Layout>

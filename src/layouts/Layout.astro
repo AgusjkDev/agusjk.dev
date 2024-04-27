@@ -1,0 +1,26 @@
+---
+import { siteConfig } from "@/config";
+
+import "@/styles/globals.css";
+
+interface Props {
+    title?: string;
+}
+
+const { title = siteConfig.title } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+
+    <body class="bg-background font-sans text-foreground antialiased">
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>
