@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { siteConfig } from "@/config";
+import { cn } from "@/lib/utils";
+
+const { pathname } = Astro.url;
+
+const HEADER_DATA: {
+    title: string;
+    navigation: {
+        children: string;
+        href: string;
+    }[];
+    socials: {
+        label: string;
+        href: string;
+        icon: string;
+    }[];
+} = {
+    title: siteConfig.title,
+    navigation: [
+        { children: "Home", href: "/" },
+        { children: "Blog", href: "/blog" },
+        { children: "About", href: "/about" },
+    ],
+    socials: siteConfig.socials,
+};
+---
+
+<div class="fixed w-full p-4 pb-0">
+    <header
+        class="mx-auto flex max-w-screen-xl items-center justify-between gap-x-4 rounded-2xl border-[1px] border-white/[0.06] bg-[linear-gradient(135deg,_rgba(17,_18,_20,_0.75)_5%,_rgba(12,_13,_15,_0.9)_75%)] p-6 backdrop-blur-sm [box-shadow:inset_0_1px_1px_0_rgba(255,255,255,0.15)]"
+    >
+        <h2 class="sm:flex-1">
+            <a
+                class="text-foreground-muted text-center font-bold underline-offset-2 hover:underline"
+                href="/">Agustín Arnoldi</a
+            >
+        </h2>
+
+        <nav class="flex flex-wrap justify-center gap-4 sm:gap-x-8">
+            {
+                HEADER_DATA.navigation.map(({ children, href }) => {
+                    const subpath = pathname.match(/[^\/]+/g);
+                    const isActive = href === pathname || href === "/" + subpath?.[0];
+
+                    return (
+                        <a
+                            class={cn(
+                                "text-center text-sm font-semibold text-[#9c9c9d] transition-colors hover:text-white",
+                                isActive && "text-white"
+                            )}
+                            href={href}
+                        >
+                            {children}
+                        </a>
+                    );
+                })
+            }
+        </nav>
+
+        <section class="hidden justify-end gap-x-3 sm:flex sm:flex-1">
+            {
+                HEADER_DATA.socials.map(({ label, href, icon }) => (
+                    <a
+                        aria-label={label}
+                        class="transition-transform duration-300 hover:scale-110"
+                        href={href}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        <Icon class="size-5" name={icon} />
+                    </a>
+                ))
+            }
+        </section>
+    </header>
+</div>

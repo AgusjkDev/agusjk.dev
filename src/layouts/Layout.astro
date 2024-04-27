@@ -1,4 +1,5 @@
 ---
+import Header from "@/components/header.astro";
 import { siteConfig } from "@/config";
 
 import "@/styles/globals.css";
@@ -19,6 +20,8 @@ const { title = siteConfig.title } = Astro.props;
     </head>
 
     <body class="bg-background font-sans text-foreground antialiased">
+        <Header />
+
         <main>
             <slot />
         </main>

@@ -10,7 +10,10 @@ export default {
             },
             colors: {
                 background: "#07080a",
-                foreground: "#ffffff",
+                foreground: {
+                    DEFAULT: "#ffffff",
+                    muted: "#e6e6e6",
+                },
             },
         },
     },
