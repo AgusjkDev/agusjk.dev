@@ -1,16 +1,17 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 import Header from "@/components/header.astro";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
 import "@/styles/globals.css";
 
-interface Props {
+interface Props extends HTMLAttributes<"div"> {
     title?: string;
-    class?: string;
 }
 
-const { title = siteConfig.title, class: className } = Astro.props;
+const { title = siteConfig.title, class: className, ...props } = Astro.props;
 ---
 
 <html lang="en">
@@ -24,7 +25,7 @@ const { title = siteConfig.title, class: className } = Astro.props;
     <body class="bg-background font-sans text-foreground antialiased">
         <Header />
 
-        <div class={cn("max-w-screen-xl mx-auto w-[92.5%]", className)}>
+        <div class={cn("max-w-screen-xl mx-auto w-[92.5%]", className)} {...props}>
             <slot />
         </div>
     </body>
