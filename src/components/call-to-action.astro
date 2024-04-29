@@ -3,12 +3,14 @@ import type { HTMLAttributes } from "astro/types";
 
 import { cn } from "@/lib/utils";
 
-interface Props extends HTMLAttributes<"button"> {}
+type Props<T extends "button" | "a"> = {
+    as?: T;
+} & HTMLAttributes<T>;
 
-const { class: className, ...props } = Astro.props;
+const { as: As = "button", class: className, ...props } = Astro.props;
 ---
 
-<button
+<As
     class={cn(
         "animate-background-shine rounded-full border border-border bg-[linear-gradient(110deg,transparent,45%,var(--primary),55%,transparent)] bg-[length:200%_100%] px-4 py-2 text-sm font-medium transition-colors duration-300 hover:border-primary",
         className
@@ -16,4 +18,4 @@ const { class: className, ...props } = Astro.props;
     {...props}
 >
     <slot />
-</button>
+</As>
