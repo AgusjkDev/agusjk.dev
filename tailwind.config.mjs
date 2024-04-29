@@ -19,13 +19,13 @@ export default {
                 ],
             },
             colors: {
-                primary: "var(--primary)",
-                background: "var(--background)",
+                primary: "rgb(var(--primary))",
+                background: "rgb(var(--background))",
                 foreground: {
-                    DEFAULT: "var(--foreground)",
-                    muted: "var(--foreground-muted)",
+                    DEFAULT: "rgb(var(--foreground))",
+                    muted: "rgb(var(--foreground-muted))",
                 },
-                border: "var(--border)",
+                border: "rgba(var(--border))",
             },
             animation: {
                 "background-shine": "background-shine 2s linear infinite",
