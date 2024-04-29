@@ -12,5 +12,10 @@ export const siteConfig = {
             href: "https://github.com/agusjkdev",
             icon: "github",
         },
+        {
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/in/agusjkdev",
+            icon: "linkedin",
+        },
     ],
 };
