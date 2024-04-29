@@ -9,11 +9,13 @@ export default {
                 sans: ["Inter", ...fontFamily.sans],
             },
             colors: {
-                background: "#07080a",
+                primary: "var(--primary)",
+                background: "var(--background)",
                 foreground: {
-                    DEFAULT: "#ffffff",
-                    muted: "#e6e6e6",
+                    DEFAULT: "var(--foreground)",
+                    muted: "var(--foreground-muted)",
                 },
+                border: "var(--border)",
             },
         },
     },

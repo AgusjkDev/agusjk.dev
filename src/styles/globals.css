@@ -34,3 +34,12 @@
     font-display: swap;
 }
 
+@layer base {
+    :root {
+        --primary: rgb(52, 35, 166);
+        --background: rgb(7, 8, 10);
+        --foreground: rgb(255, 255, 255);
+        --foreground-muted: rgb(156, 156, 157);
+        --border: rgba(255, 255, 255, 0.06);
+    }
+}
