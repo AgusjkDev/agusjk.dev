@@ -1,5 +1,6 @@
 export const siteConfig = {
     title: "Personal Website",
+    email: "agusjkdev7@gmail.com",
     socials: [
         {
             label: "Twitter",

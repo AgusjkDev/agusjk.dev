@@ -1,7 +1,28 @@
 ---
+import CallToAction from "@/components/call-to-action.astro";
+import { siteConfig } from "@/config";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-    <span>Index</span>
+    <main class="relative mx-auto flex min-h-dvh flex-col items-center justify-center">
+        <div class="flex flex-col">
+            <span class="font-bold">Hello&#44; my name is</span>
+
+            <h1 class="text-title">
+                Agustín Arnoldi&#46;
+                <br />
+                <span
+                    class="inline-block bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent"
+                    >I'm a Software Developer&#46;
+                </span>
+            </h1>
+        </div>
+
+        <div class="absolute bottom-[42px]">
+            <CallToAction as="a" class="relative" href=`mailto:${siteConfig.email}`>
+                Contact now
+            </CallToAction>
+        </div>
+    </main>
 </Layout>
