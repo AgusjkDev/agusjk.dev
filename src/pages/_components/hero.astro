@@ -1,0 +1,28 @@
+---
+import CallToAction from "@/components/call-to-action.astro";
+import { siteConfig } from "@/config";
+---
+
+<main class="relative mx-auto flex min-h-dvh flex-col items-center justify-center">
+    <div class="flex flex-col">
+        <span class="animate-fade-in font-bold">
+            Hello&#44;
+            <span class="animate-fade-in [animation-delay:1s]">my name is</span>
+
+            <h1 class="animate-fade-in text-title [animation-delay:2s]">
+                Agustín Arnoldi&#46;
+                <br />
+                <span
+                    class="inline-block animate-fade-in bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent [animation-delay:3s]"
+                    >I'm a Software Developer&#46;
+                </span>
+            </h1>
+        </span>
+    </div>
+
+    <div class="absolute bottom-[42px] animate-fade-in [animation-delay:3s]">
+        <CallToAction as="a" class="relative" href=`mailto:${siteConfig.email}`>
+            Contact now
+        </CallToAction>
+    </div>
+</main>
