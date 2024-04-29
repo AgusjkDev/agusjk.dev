@@ -29,6 +29,7 @@ export default {
             },
             animation: {
                 "background-shine": "background-shine 2s linear infinite",
+                "fade-in": "fade-in 2s both",
             },
             keyframes: {
                 "background-shine": {
@@ -37,6 +38,14 @@ export default {
                     },
                     to: {
                         backgroundPosition: "-200% 0",
+                    },
+                },
+                "fade-in": {
+                    "0%": {
+                        opacity: 0,
+                    },
+                    "100%": {
+                        opacity: 1,
                     },
                 },
             },
