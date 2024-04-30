@@ -1,6 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
-
+import Github from "@/components/icons/github.astro";
+import Linkedin from "@/components/icons/linkedin.astro";
+import Twitter from "@/components/icons/twitter.astro";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,7 @@ const HEADER_DATA: {
     socials: {
         label: string;
         href: string;
-        icon: string;
+        icon: (...args: any[]) => any;
     }[];
 } = {
     title: siteConfig.title,
@@ -24,7 +25,10 @@ const HEADER_DATA: {
         { children: "Blog", href: "/blog" },
         { children: "About", href: "/about" },
     ],
-    socials: siteConfig.socials,
+    socials: siteConfig.socials.map(({ key, ...social }) => ({
+        ...social,
+        icon: key === "twitter" ? Twitter : key === "github" ? Github : Linkedin,
+    })),
 };
 ---
 
@@ -61,7 +65,7 @@ const HEADER_DATA: {
 
         <section class="hidden justify-end gap-x-3 sm:flex sm:flex-1">
             {
-                HEADER_DATA.socials.map(({ label, href, icon }) => (
+                HEADER_DATA.socials.map(({ label, href, icon: Icon }) => (
                     <a
                         aria-label={label}
                         class="transition-transform duration-300 hover:scale-110"
@@ -69,7 +73,7 @@ const HEADER_DATA: {
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        <Icon class="size-5" name={icon} />
+                        <Icon class="size-5 fill-foreground" />
                     </a>
                 ))
             }
