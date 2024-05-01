@@ -3,19 +3,19 @@ export const siteConfig = {
     email: "agusjkdev7@gmail.com",
     socials: [
         {
-            key: "twitter",
+            key: "Twitter",
             label: "Twitter",
             href: "https://twitter.com/agusjkdev",
-        } as const,
+        },
         {
-            key: "github",
+            key: "Github",
             label: "GitHub",
             href: "https://github.com/agusjkdev",
-        } as const,
+        },
         {
-            key: "linkedin",
+            key: "Linkedin",
             label: "LinkedIn",
             href: "https://www.linkedin.com/in/agusjkdev",
-        } as const,
+        },
     ],
 };

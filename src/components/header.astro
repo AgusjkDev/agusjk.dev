@@ -1,7 +1,5 @@
 ---
-import Github from "@/components/icons/github.astro";
-import Linkedin from "@/components/icons/linkedin.astro";
-import Twitter from "@/components/icons/twitter.astro";
+import * as Icons from "@/components/icons";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +25,7 @@ const HEADER_DATA: {
     ],
     socials: siteConfig.socials.map(({ key, ...social }) => ({
         ...social,
-        icon: key === "twitter" ? Twitter : key === "github" ? Github : Linkedin,
+        icon: Icons[key as keyof typeof Icons],
     })),
 };
 ---
