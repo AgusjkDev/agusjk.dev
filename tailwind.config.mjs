@@ -25,7 +25,13 @@ export default {
                     DEFAULT: "rgb(var(--foreground))",
                     muted: "rgb(var(--foreground-muted))",
                 },
-                border: "rgba(var(--border))",
+                border: {
+                    DEFAULT: "rgba(var(--border))",
+                    shadow: "rgba(var(--border-shadow))",
+                },
+            },
+            boxShadow: {
+                "border-top": "inset 0 1px 1px 0",
             },
             animation: {
                 "background-shine": "background-shine 2s linear infinite",

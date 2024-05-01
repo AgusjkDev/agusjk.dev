@@ -41,5 +41,6 @@
         --foreground: 255 255 255;
         --foreground-muted: 156 156 157;
         --border: 255 255 255 / 0.06;
+        --border-shadow: 255 255 255 / 0.15;
     }
 }
