@@ -45,6 +45,6 @@
     }
 
     html {
-        @apply snap-y snap-mandatory;
+        @apply md:snap-y md:snap-mandatory;
     }
 }
