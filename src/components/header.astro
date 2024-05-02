@@ -1,30 +1,8 @@
 ---
-import type { IconType } from "@/components/icons";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
 const { pathname } = Astro.url;
-
-const HEADER_DATA: {
-    title: string;
-    navigation: {
-        children: string;
-        href: string;
-    }[];
-    socials: {
-        label: string;
-        href: string;
-        icon: IconType;
-    }[];
-} = {
-    title: siteConfig.title,
-    navigation: [
-        { children: "Home", href: "/" },
-        { children: "Blog", href: "/blog" },
-        { children: "About", href: "/about" },
-    ],
-    socials: siteConfig.socials,
-};
 ---
 
 <div class="fixed z-[1] w-full animate-fade-in p-4 pb-0 [animation-delay:3s]">
@@ -39,7 +17,7 @@ const HEADER_DATA: {
 
         <nav class="flex flex-wrap justify-center gap-4 sm:gap-x-8">
             {
-                HEADER_DATA.navigation.map(({ children, href }) => {
+                siteConfig.navigation.map(({ label, href }) => {
                     const subpath = pathname.match(/[^\/]+/g);
                     const isActive = href === pathname || href === "/" + subpath?.[0];
 
@@ -51,7 +29,7 @@ const HEADER_DATA: {
                             )}
                             href={href}
                         >
-                            {children}
+                            {label}
                         </a>
                     );
                 })
@@ -60,7 +38,7 @@ const HEADER_DATA: {
 
         <section class="hidden justify-end gap-x-3 sm:flex sm:flex-1">
             {
-                HEADER_DATA.socials.map(({ label, href, icon: Icon }) => (
+                siteConfig.socials.map(({ label, href, icon: Icon }) => (
                     <a
                         aria-label={label}
                         class="transition-transform duration-300 hover:scale-110"
