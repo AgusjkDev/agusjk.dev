@@ -34,4 +34,23 @@ export const siteConfig = {
             href: "https://www.linkedin.com/in/agusjkdev",
         },
     ],
+    repository: {
+        href: "https://github.com/AgusjkDev/personal-website",
+        getUrls() {
+            return [
+                {
+                    label: "Repository",
+                    href: this.href,
+                },
+                {
+                    label: "Report an issue",
+                    href: `${this.href}/issues/new`,
+                },
+                {
+                    label: "Stargazers",
+                    href: `${this.href}/stargazers`,
+                },
+            ];
+        },
+    },
 };
