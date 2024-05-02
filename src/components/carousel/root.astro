@@ -1,0 +1,51 @@
+---
+import { Arrow } from "@/components/icons";
+---
+
+<div
+    aria-roledescription="carousel"
+    class="flex max-w-full items-center gap-[calc(var(--carousel-gap)_/_2)]"
+    style="--slide-max-width: 350px; --carousel-gap: 32px;"
+>
+    <button
+        aria-label="Previous slide"
+        class="embla__prev rounded-full border border-border p-2 transition-opacity duration-300 disabled:opacity-50 lg:p-2.5"
+    >
+        <Arrow class="size-4 -rotate-90 fill-foreground lg:size-5" />
+    </button>
+
+    <div
+        class="embla max-w-[var(--slide-max-width)] overflow-hidden lg:max-w-[calc(var(--slide-max-width)_*_3_+_var(--carousel-gap)_*_2)]"
+    >
+        <div class="embla__container -ml-[var(--carousel-gap)] flex">
+            <slot />
+        </div>
+    </div>
+
+    <buttonq
+        aria-label="Next slide"
+        class="embla__next rounded-full border border-border p-2 transition-opacity duration-300 disabled:opacity-50 lg:p-2.5"
+    >
+        <Arrow class="size-4 rotate-90 fill-foreground lg:size-5" />
+    </buttonq>
+</div>
+
+<script>
+    import EmblaCarousel, { type EmblaCarouselType } from "embla-carousel";
+
+    const rootNode = document.querySelector<HTMLElement>(".embla")!;
+    const prevButton = document.querySelector<HTMLButtonElement>(".embla__prev")!;
+    const nextButton = document.querySelector<HTMLButtonElement>(".embla__next")!;
+
+    const carousel = EmblaCarousel(rootNode);
+
+    function handleButtons({ canScrollPrev, canScrollNext }: EmblaCarouselType) {
+        prevButton.disabled = !canScrollPrev();
+        nextButton.disabled = !canScrollNext();
+    }
+
+    carousel.on("init", handleButtons);
+    carousel.on("select", handleButtons);
+    prevButton.addEventListener("click", () => carousel.scrollPrev());
+    nextButton.addEventListener("click", () => carousel.scrollNext());
+</script>

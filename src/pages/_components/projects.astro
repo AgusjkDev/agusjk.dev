@@ -1,0 +1,86 @@
+---
+import Carousel from "@/components/carousel";
+import * as Icons from "@/components/icons";
+import LandingSectionLayout from "@/layouts/landing-section-layout.astro";
+
+const PROJECTS_DATA: {
+    name: string;
+    description: string;
+    href: string;
+    technologies: string[];
+    icon: Icons.IconType | Icons.IconImageType;
+    color: string;
+}[] = [
+    {
+        name: "Dream Duo",
+        description: "Real-time dating app. Instant connections, endless possibilities.",
+        href: "https://dream-duo.vercel.app",
+        technologies: ["Next.js", "PostgreSQL", "React.js", "Tailwind CSS", "TypeScript"],
+        icon: Icons.Dreamduo,
+        color: "225 29 72",
+    },
+    {
+        name: "Favgen CLI",
+        description: "Command Line Interface for generating favicon images and configs.",
+        href: "https://www.npmjs.com/package/favgen-cli",
+        technologies: ["Bun", "TypeScript"],
+        icon: Icons.Favgencli,
+        color: "6 152 154",
+    },
+    {
+        name: "Next.js App Directory Snippets",
+        description:
+            "Visual Studio Code extension that provides the latest Next.js App Directory snippets.",
+        href: "https://marketplace.visualstudio.com/items?itemName=agusjkdev.nextjs-appdir-snippets",
+        technologies: ["JavaScript"],
+        icon: Icons.Nextjsappdirsnippets,
+        color: "33 33 33",
+    },
+    {
+        name: "Shade Url Shortener",
+        description: "Refined and easy to use URL shortener.",
+        href: "https://shade-url-shortener.vercel.app",
+        technologies: ["Next.js", "React.js", "Supabase", "Tailwind CSS", "TypeScript"],
+        icon: Icons.Shadeurlshortener,
+        color: "250 250 250",
+    },
+];
+---
+
+<LandingSectionLayout title="Projects">
+    <Carousel.Root>
+        {
+            PROJECTS_DATA.map(({ name, description, href, technologies, icon: Icon, color }) => (
+                <Carousel.Item>
+                    <a
+                        class="relative flex aspect-[1/1.33] flex-col gap-y-4 rounded-2xl border border-border bg-[radial-gradient(125%_75%_at_50%,rgba(var(--project-color)/0.33),rgb(var(--background)))] p-6 shadow-border-top shadow-border-shadow transition-opacity duration-300 hover:opacity-85"
+                        href={href}
+                        rel="noopener noreferrer"
+                        style={`--project-color: ${color};`}
+                        target="_blank"
+                    >
+                        <header class="flex items-center gap-x-4">
+                            <div class="size-12 rounded-lg border border-[rgb(var(--project-color))]/25 p-2.5 shadow-border-top shadow-[rgb(var(--project-color))]/75">
+                                <Icon class="size-full rounded-[3px] fill-foreground" />
+                            </div>
+
+                            <span class="font-medium lg:text-sm lg:font-semibold">{name}</span>
+                        </header>
+
+                        <p class="text-pretty text-sm">{description}</p>
+
+                        <div class="mt-auto flex flex-wrap gap-1">
+                            {technologies.map(technology => (
+                                <span class="rounded-full border border-border px-2 py-1 text-xxs font-semibold">
+                                    {technology}
+                                </span>
+                            ))}
+                        </div>
+
+                        <Icon class="absolute left-1/2 top-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 fill-foreground opacity-15" />
+                    </a>
+                </Carousel.Item>
+            ))
+        }
+    </Carousel.Root>
+</LandingSectionLayout>
