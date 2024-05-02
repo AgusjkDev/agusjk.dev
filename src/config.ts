@@ -1,19 +1,21 @@
+import * as SocialIcons from "@/components/icons/socials";
+
 export const siteConfig = {
     title: "Personal Website",
     email: "agusjkdev7@gmail.com",
     socials: [
         {
-            key: "Twitter",
+            icon: SocialIcons.Twitter,
             label: "Twitter",
             href: "https://twitter.com/agusjkdev",
         },
         {
-            key: "Github",
+            icon: SocialIcons.GitHub,
             label: "GitHub",
             href: "https://github.com/agusjkdev",
         },
         {
-            key: "Linkedin",
+            icon: SocialIcons.LinkedIn,
             label: "LinkedIn",
             href: "https://www.linkedin.com/in/agusjkdev",
         },

@@ -1,5 +1,5 @@
 ---
-import * as Icons from "@/components/icons";
+import type { IconType } from "@/components/icons";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ const HEADER_DATA: {
     socials: {
         label: string;
         href: string;
-        icon: Icons.IconType;
+        icon: IconType;
     }[];
 } = {
     title: siteConfig.title,
@@ -23,10 +23,7 @@ const HEADER_DATA: {
         { children: "Blog", href: "/blog" },
         { children: "About", href: "/about" },
     ],
-    socials: siteConfig.socials.map(({ key, ...social }) => ({
-        ...social,
-        icon: Icons[key as keyof typeof Icons],
-    })),
+    socials: siteConfig.socials,
 };
 ---
 

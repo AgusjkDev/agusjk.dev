@@ -1,6 +1,7 @@
 ---
 import Carousel from "@/components/carousel";
-import * as Icons from "@/components/icons";
+import type { IconImageType, IconType } from "@/components/icons";
+import * as ProjectsIcons from "@/components/icons/projects";
 import LandingSectionLayout from "@/layouts/landing-section-layout.astro";
 
 const PROJECTS_DATA: {
@@ -8,7 +9,7 @@ const PROJECTS_DATA: {
     description: string;
     href: string;
     technologies: string[];
-    icon: Icons.IconType | Icons.IconImageType;
+    icon: IconType | IconImageType;
     color: string;
 }[] = [
     {
@@ -16,7 +17,7 @@ const PROJECTS_DATA: {
         description: "Real-time dating app. Instant connections, endless possibilities.",
         href: "https://dream-duo.vercel.app",
         technologies: ["Next.js", "PostgreSQL", "React.js", "Tailwind CSS", "TypeScript"],
-        icon: Icons.Dreamduo,
+        icon: ProjectsIcons.DreamDuo,
         color: "225 29 72",
     },
     {
@@ -24,7 +25,7 @@ const PROJECTS_DATA: {
         description: "Command Line Interface for generating favicon images and configs.",
         href: "https://www.npmjs.com/package/favgen-cli",
         technologies: ["Bun", "TypeScript"],
-        icon: Icons.Favgencli,
+        icon: ProjectsIcons.FavgenCli,
         color: "6 152 154",
     },
     {
@@ -33,7 +34,7 @@ const PROJECTS_DATA: {
             "Visual Studio Code extension that provides the latest Next.js App Directory snippets.",
         href: "https://marketplace.visualstudio.com/items?itemName=agusjkdev.nextjs-appdir-snippets",
         technologies: ["JavaScript"],
-        icon: Icons.Nextjsappdirsnippets,
+        icon: ProjectsIcons.NextjsAppdirSnippets,
         color: "33 33 33",
     },
     {
@@ -41,7 +42,7 @@ const PROJECTS_DATA: {
         description: "Refined and easy to use URL shortener.",
         href: "https://shade-url-shortener.vercel.app",
         technologies: ["Next.js", "React.js", "Supabase", "Tailwind CSS", "TypeScript"],
-        icon: Icons.Shadeurlshortener,
+        icon: ProjectsIcons.ShadeUrlShortener,
         color: "250 250 250",
     },
 ];
