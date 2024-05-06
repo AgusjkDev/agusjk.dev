@@ -2,6 +2,7 @@ import * as SocialIcons from "@/components/icons/socials";
 
 export const siteConfig = {
     title: "Personal Website",
+    author: "Agustín Arnoldi",
     email: "agusjkdev7@gmail.com",
     navigation: [
         {
