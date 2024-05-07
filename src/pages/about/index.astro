@@ -1,14 +1,34 @@
 ---
+import type { Props as MetadataProps } from "@/components/metadata.astro";
 import { siteConfig } from "@/config";
 import Layout from "@/layouts/layout.astro";
 
 import { Content } from "./about-me.mdx";
 
-const title = `About ${siteConfig.author}`;
+const metadata: MetadataProps = {
+    title: `About ${siteConfig.author}`,
+    description: `Learn more about me and dive into my career overview, passions, and goals. Discover what motivates me professionally and personally. Connect and explore opportunities for collaboration.`,
+    keywords: [
+        "About",
+        "Agustín Arnoldi",
+        "Argentina",
+        "Career Overview",
+        "Contact",
+        "Córdoba",
+        "Developer",
+        "Goals",
+        "IT",
+        "Passions",
+        "Software",
+    ],
+    og: { type: "website" },
+};
 ---
 
-<Layout title={title} class="flex flex-col gap-y-12">
-    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">{title}</h1>
+<Layout class="flex flex-col gap-y-12" metadata={metadata}>
+    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">
+        {metadata.title}
+    </h1>
 
     <main>
         <article class="prose prose-foreground w-full lg:prose-lg">

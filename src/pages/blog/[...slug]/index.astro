@@ -15,13 +15,20 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const {
-    data: { title, createdAt },
+    data: { title, description, keywords, category, createdAt, updatedAt },
     ...post
 } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={`${title} | ${siteConfig.author}'s Blog`}>
+<Layout
+    metadata={{
+        title: `${title} | ${siteConfig.author}'s Blog`,
+        description,
+        keywords: keywords.split(", "),
+        og: { type: "article", category, createdAt, updatedAt },
+    }}
+>
     <main>
         <article class="flex flex-col items-center gap-y-8">
             <FormattedDate class="text-center font-medium text-foreground-muted" date={createdAt} />

@@ -1,9 +1,26 @@
 import * as SocialIcons from "@/components/icons/socials";
 
 export const siteConfig = {
-    title: "Personal Website",
     author: "Agustín Arnoldi",
     email: "agusjkdev7@gmail.com",
+    description:
+        "I'm a 19 years old software developer from Córdoba, Argentina 🇦🇷 I started coding back in March 2021, and since then, I've been on an exciting journey of learning and experimenting in the world of software development.",
+    keywords: [
+        "Agustín Arnoldi",
+        "Argentina",
+        "Articles",
+        "Blog",
+        "Coding",
+        "Córdoba",
+        "Portfolio",
+        "Posts",
+        "Programming",
+        "Software",
+        "Tech",
+        "Tutorials",
+        "Writings",
+    ],
+    locale: "en_US",
     navigation: [
         {
             label: "Home",

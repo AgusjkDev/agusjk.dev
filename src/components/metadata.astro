@@ -1,22 +1,155 @@
 ---
+import { siteConfig } from "@/config";
+
 import "@/styles/globals.css";
 
-interface Props {
+export interface Props {
     title: string;
+    description?: string;
+    keywords?: string[];
+    og:
+        | {
+              type: "website";
+          }
+        | {
+              type: "article";
+              createdAt: Date;
+              updatedAt?: Date;
+              category: string;
+          };
 }
 
-const { title } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.url.origin);
+const {
+    title,
+    description = siteConfig.description,
+    keywords = siteConfig.keywords,
+    og,
+} = Astro.props;
+
+const { origin, href: canonical } = Astro.url;
+const ogImageSrc = og.type === "website" ? `${origin}/imgs/og.avif` : `${canonical}/og.png`;
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords.join(", ")} />
+<meta name="author" content={siteConfig.author} />
+<meta name="creator" content={siteConfig.author} />
+<meta name="publisher" content={siteConfig.author} />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+<meta name="referrer" content="origin" />
+<meta name="robots" content="index, follow, nocache" />
+<meta
+    name="googlebot"
+    content="index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+/>
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content=`${canonical}` />
+<meta property="og:site_name" content={siteConfig.author} />
+<meta property="og:locale" content={siteConfig.locale} />
+<meta property="og:image" content={ogImageSrc} />
+<meta property="og:type" content={og.type} />
+{
+    og.type === "article" && (
+        <>
+            <meta property="og:article:published_time" content={og.createdAt.toISOString()} />
+            {og.updatedAt && (
+                <meta property="og:article:modified_time" content={og.updatedAt.toISOString()} />
+            )}
+            <meta property="og:article:author" content={siteConfig.author} />
+            <meta property="og:article:section" content={og.category} />
+            {keywords.map(keyword => (
+                <meta property="og:article:tag" content={keyword} />
+            ))}
+        </>
+    )
+}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageSrc} />
+
+<link rel="canonical" href={canonical} />
 
 <link rel="preload" href="/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin />
 <link rel="preload" href="/fonts/Inter-Medium.ttf" as="font" type="font/ttf" crossorigin />
 <link rel="preload" href="/fonts/Inter-SemiBold.ttf" as="font" type="font/ttf" crossorigin />
 <link rel="preload" href="/fonts/Inter-Bold.ttf" as="font" type="font/ttf" crossorigin />
 
-<link rel="canonical" href={canonical} />
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-180x180.png"
+    sizes="180x180"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-167x167.png"
+    sizes="167x167"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-152x152.png"
+    sizes="152x152"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-144x144.png"
+    sizes="144x144"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-120x120.png"
+    sizes="120x120"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-114x114.png"
+    sizes="114x114"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-76x76.png"
+    sizes="76x76"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-72x72.png"
+    sizes="72x72"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-60x60.png"
+    sizes="60x60"
+    type="image/png"
+/>
+<link
+    rel="apple-touch-icon"
+    href="/imgs/favicons/favicon-57x57.png"
+    sizes="57x57"
+    type="image/png"
+/>
+<link rel="icon" href="/imgs/favicons/favicon-384x384.png" sizes="384x384" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-256x256.png" sizes="256x256" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-196x196.png" sizes="196x196" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-128x128.png" sizes="128x128" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-96x96.png" sizes="96x96" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-64x64.png" sizes="64x64" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-24x24.png" sizes="24x24" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+<link rel="icon" href="/imgs/favicons/favicon.svg" sizes="any" type="image/svg+xml" />
+<link rel="icon" href="/imgs/favicons/favicon.ico" sizes="16x16 32x32 64x64" type="image/x-icon" />

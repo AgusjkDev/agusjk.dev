@@ -2,19 +2,19 @@
 import type { HTMLAttributes } from "astro/types";
 
 import Header from "@/components/header.astro";
-import Metadata from "@/components/metadata.astro";
+import Metadata, { type Props as MetadataProps } from "@/components/metadata.astro";
 import { cn } from "@/lib/utils";
 
 interface Props extends HTMLAttributes<"div"> {
-    title: string;
+    metadata: MetadataProps;
 }
 
-const { title, class: className } = Astro.props;
+const { class: className, metadata } = Astro.props;
 ---
 
 <html lang="en">
     <head>
-        <Metadata title={title} />
+        <Metadata {...metadata} />
     </head>
 
     <body>

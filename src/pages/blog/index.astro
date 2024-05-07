@@ -1,20 +1,38 @@
 ---
 import { getCollection } from "astro:content";
 
+import type { Props as MetadataProps } from "@/components/metadata.astro";
 import { siteConfig } from "@/config";
 import Layout from "@/layouts/layout.astro";
 
 import PostCard from "./_components/post-card.astro";
 
-const title = `${siteConfig.author}'s Blog`;
+const metadata: MetadataProps = {
+    title: `${siteConfig.author}'s Blog`,
+    description: `Dive into a variety of topics and insights written by ${siteConfig.author}. Stay informed and entertained with the latest writings.`,
+    keywords: [
+        "Articles",
+        "Blog",
+        "Coding",
+        "Posts",
+        "Programming",
+        "Software",
+        "Tech",
+        "Tutorials",
+        "Writings",
+    ],
+    og: { type: "website" },
+};
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime(),
 );
 ---
 
-<Layout title={title} class="flex flex-col gap-y-12">
-    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">{title}</h1>
+<Layout class="flex flex-col gap-y-12" metadata={metadata}>
+    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">
+        {metadata.title}
+    </h1>
 
     <main class="flex flex-col gap-y-12">
         {posts.map(post => <PostCard post={post} />)}
