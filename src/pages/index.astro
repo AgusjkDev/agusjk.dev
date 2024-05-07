@@ -1,5 +1,7 @@
 ---
-import Layout from "@/layouts/layout.astro";
+import Header from "@/components/header.astro";
+import Metadata from "@/components/metadata.astro";
+import { siteConfig } from "@/config";
 
 import Footer from "./_components/footer.astro";
 import Hero from "./_components/hero.astro";
@@ -7,12 +9,22 @@ import Knowledgements from "./_components/knowledgements.astro";
 import Projects from "./_components/projects.astro";
 ---
 
-<Layout>
-    <Hero />
+<html lang="en">
+    <head>
+        <Metadata title={`${siteConfig.author}'s Website`} />
+    </head>
 
-    <Knowledgements />
+    <body>
+        <Header />
 
-    <Projects />
+        <div class="mx-auto w-[92.5%] max-w-screen-xl">
+            <Hero />
 
-    <Footer />
-</Layout>
+            <Knowledgements />
+
+            <Projects />
+
+            <Footer />
+        </div>
+    </body>
+</html>

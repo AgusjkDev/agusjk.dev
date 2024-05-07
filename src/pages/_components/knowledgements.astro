@@ -1,7 +1,8 @@
 ---
 import * as Icons from "@/components/icons";
 import * as TechnologiesIcons from "@/components/icons/technologies";
-import LandingSectionLayout from "@/layouts/landing-section-layout.astro";
+
+import SectionLayout from "../_layouts/section-layout.astro";
 
 const KNOWLEDGEMENTS_DATA: {
     icon: Icons.IconType;
@@ -133,7 +134,7 @@ const KNOWLEDGEMENTS_DATA: {
 ];
 ---
 
-<LandingSectionLayout title="Knowledgements">
+<SectionLayout title="Knowledgements">
     <div class="flex w-full flex-wrap justify-center gap-8">
         {
             KNOWLEDGEMENTS_DATA.map(({ icon: Icon, title, technologies }) => (
@@ -164,4 +165,4 @@ const KNOWLEDGEMENTS_DATA: {
             ))
         }
     </div>
-</LandingSectionLayout>
+</SectionLayout>

@@ -2,7 +2,8 @@
 import Carousel from "@/components/carousel";
 import type { IconImageType, IconType } from "@/components/icons";
 import * as ProjectsIcons from "@/components/icons/projects";
-import LandingSectionLayout from "@/layouts/landing-section-layout.astro";
+
+import SectionLayout from "../_layouts/section-layout.astro";
 
 const PROJECTS_DATA: {
     name: string;
@@ -48,7 +49,7 @@ const PROJECTS_DATA: {
 ];
 ---
 
-<LandingSectionLayout title="Projects">
+<SectionLayout title="Projects">
     <Carousel.Root>
         {
             PROJECTS_DATA.map(({ name, description, href, technologies, icon: Icon, color }) => (
@@ -84,4 +85,4 @@ const PROJECTS_DATA: {
             ))
         }
     </Carousel.Root>
-</LandingSectionLayout>
+</SectionLayout>

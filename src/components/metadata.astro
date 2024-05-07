@@ -1,0 +1,22 @@
+---
+import "@/styles/globals.css";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.url.origin);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+
+<link rel="preload" href="/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/Inter-Medium.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/Inter-SemiBold.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/Inter-Bold.ttf" as="font" type="font/ttf" crossorigin />
+
+<link rel="canonical" href={canonical} />
