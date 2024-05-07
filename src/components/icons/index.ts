@@ -7,5 +7,6 @@ export type IconImageType = (_props: ImageProps) => any;
 
 export { default as Arrow } from "./arrow.astro";
 export { default as Desktop } from "./desktop.astro";
+export { default as Menu } from "./menu.astro";
 export { default as Server } from "./server.astro";
 export { default as Terminal } from "./terminal.astro";

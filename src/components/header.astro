@@ -1,55 +1,84 @@
 ---
+import { Menu } from "@/components/icons";
 import { siteConfig } from "@/config";
-import { cn } from "@/lib/utils";
+import { cn, isHrefActive } from "@/lib/utils";
 
 const { pathname } = Astro.url;
 ---
 
-<div class="fixed z-[1] w-full animate-fade-in p-4 pb-0 [animation-delay:3s]">
-    <header
-        class="mx-auto flex max-w-screen-xl items-center justify-between gap-x-4 rounded-2xl border-[1px] border-border bg-[linear-gradient(135deg,_rgba(17,_18,_20,_0.75)_5%,_rgba(12,_13,_15,_0.9)_75%)] p-6 shadow-border-top shadow-border-shadow backdrop-blur-sm"
-    >
-        <h2 class="sm:flex-1">
-            <a class="text-center font-bold underline-offset-2 hover:underline" href="/">
+<header
+    data-header-state="closed"
+    style="--header-height: 78px; --header-spacing: 16px; background-image: linear-gradient(135deg, rgba(17, 18, 20, 0.75) 5%, rgba(12, 13, 15, 0.9) 75%)"
+    class={cn(
+        "fixed left-1/2 top-[var(--header-spacing)] z-[1] flex h-[var(--header-height)] min-h-[var(--header-height)] w-[calc(100%_-_calc(var(--header-spacing)_*_2))] max-w-screen-xl -translate-x-1/2 flex-col items-center justify-between gap-y-6 overflow-hidden rounded-2xl border border-border p-6 shadow-border-top shadow-border-shadow transition-all duration-300 data-[header-state='open']:min-h-64 sm:flex-row [&_button[data-header-menu-button]>svg]:data-[header-state='open']:fill-foreground",
+        pathname === "/" && "animate-fade-in [animation-delay:3s]",
+    )}
+>
+    <div class="flex w-full items-center justify-between sm:w-auto">
+        <h2 class="text-center font-bold">
+            <a class="underline-offset-2 hover:underline" href="/">
                 {siteConfig.author}
             </a>
         </h2>
 
-        <nav class="flex flex-wrap justify-center gap-4 sm:gap-x-8">
-            {
-                siteConfig.navigation.map(({ label, href }) => {
-                    const subpath = pathname.match(/[^\/]+/g);
-                    const isActive = href === pathname || href === "/" + subpath?.[0];
+        <button data-header-menu-button class="group sm:hidden">
+            <Menu
+                class="size-7 fill-foreground-muted transition-colors group-hover:fill-foreground"
+            />
+        </button>
+    </div>
 
-                    return (
-                        <a
-                            class={cn(
-                                "text-center text-sm font-semibold text-foreground-muted transition-colors hover:text-foreground",
-                                isActive && "text-foreground",
-                            )}
-                            href={href}
-                        >
-                            {label}
-                        </a>
-                    );
-                })
-            }
-        </nav>
+    <nav class="flex flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-8">
+        {
+            siteConfig.navigation.map(({ label, href }) => (
+                <a
+                    class={cn(
+                        "text-center text-sm font-semibold text-foreground-muted transition-colors hover:text-foreground",
+                        isHrefActive(pathname, href) && "text-foreground",
+                    )}
+                    href={href}
+                >
+                    {label}
+                </a>
+            ))
+        }
+    </nav>
 
-        <section class="hidden justify-end gap-x-3 sm:flex sm:flex-1">
-            {
-                siteConfig.socials.map(({ label, href, icon: Icon }) => (
-                    <a
-                        aria-label={label}
-                        class="transition-transform duration-300 hover:scale-110"
-                        href={href}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        <Icon class="size-5 fill-foreground" />
-                    </a>
-                ))
-            }
-        </section>
-    </header>
-</div>
+    <section class="flex gap-x-4">
+        {
+            siteConfig.socials.map(({ label, href, icon: Icon }) => (
+                <a
+                    aria-label={label}
+                    class="transition-transform duration-300 hover:scale-110"
+                    href={href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    <Icon class="size-5 fill-foreground" />
+                </a>
+            ))
+        }
+    </section>
+</header>
+
+<script>
+    document
+        .querySelector<HTMLButtonElement>("[data-header-menu-button]")!
+        .addEventListener("click", () => {
+            const $header = document.querySelector<HTMLElement>("[data-header-state]")!;
+            const isClosed = $header.getAttribute("data-header-state") === "closed";
+
+            $header.setAttribute("data-header-state", isClosed ? "open" : "closed");
+            // Condition is inverted since we are currently changing it
+            document.documentElement.style.overflow = isClosed ? "hidden" : "auto";
+        });
+
+    window.matchMedia("(min-width: 640px)").addEventListener("change", () => {
+        const $header = document.querySelector<HTMLElement>("[data-header-state]")!;
+
+        if ($header.getAttribute("data-header-state") === "open") {
+            $header.setAttribute("data-header-state", "closed");
+            document.documentElement.style.overflow = "auto";
+        }
+    });
+</script>
