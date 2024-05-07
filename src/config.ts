@@ -22,16 +22,19 @@ export const siteConfig = {
         {
             icon: SocialIcons.Twitter,
             label: "Twitter",
+            username: "agusjkdev",
             href: "https://twitter.com/agusjkdev",
         },
         {
             icon: SocialIcons.GitHub,
             label: "GitHub",
+            username: "agusjkdev",
             href: "https://github.com/agusjkdev",
         },
         {
             icon: SocialIcons.LinkedIn,
             label: "LinkedIn",
+            username: "agusjkdev",
             href: "https://www.linkedin.com/in/agusjkdev",
         },
     ],

@@ -1,0 +1,61 @@
+Hey! I'm glad you want to know more about me, I promise you it will be worth. I'm excited to share my thoughts with you.
+
+### About me
+
+I'm a 19 years old software developer from Córdoba, Argentina 🇦🇷
+
+import { Image } from "astro:assets"
+
+<figure>
+    <Image
+        alt="A picture of myself"
+        src="/imgs/me.avif"
+        width={1800}
+        height={2399}
+        quality={100}
+    />
+    <figcaption>
+        Don't judge me, I was minutes away from presenting my technical high school thesis, I was commited and extremely serious.
+    </figcaption>
+</figure>
+
+I started coding back in March 2021, and since then, I've been on an exciting journey of learning and experimenting in the world of software development.
+
+In the past years, I have participated in hackathons and also developed several interesting projects that I have yet to update and improve.
+
+### Career Overview
+
+In 2023, I completed my technical high school education as a Professional and Personal IT Technician, where I gained a solid foundation in computer science and networking. Currently, I'm pursuing an advanced degree in Software Development, aiming to further deepen my understanding of programming principles and expand my skill set in this dynamic field.
+
+### My Passions
+
+In my free time you can often find me either listening to music or catching up on streams to unwind after a long day. I also enjoy going for a bike ride, exploring new trails and soaking in the beauty of nature.
+
+Another passion of mine is teaching and helping others. Whether it's explaining a tricky concept to a friend or volunteering in my community, I find great joy in sharing knowledge and supporting those around me.
+
+### My Goals
+
+One of my primary goals is to learn something meaningful every day. In the ever-evolving world of software development, continuous learning is essential, and I'm committed to staying updated on the latest technologies and industry trends.
+
+Additionally, I aspire to develop innovative and straightforward solutions to the challenges society may face. I believe in the power of technology to positively impact lives, and I'm passionate about leveraging my skills to create solutions that are not only effective but also accessible and user-friendly.
+
+These goals drive me to push my limits, embrace new opportunities, and make a meaningful difference in the world.
+
+### Contact
+
+import { siteConfig } from "@/config"
+
+If you'd like to get in touch, feel free to reach out to me via email at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+
+You can also connect with me on various platforms:
+
+<ul>
+    {
+        siteConfig.socials.map(({label, username, href}) => (
+            <li>{label}: <a href={href} target="_blank">{username}</a></li>
+        ))
+    }
+</ul>
+
+
+I'm always open to networking, collaboration, or just having a friendly chat, so don't hesitate to reach out on any of these platforms!

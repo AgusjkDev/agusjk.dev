@@ -1,0 +1,18 @@
+---
+import { siteConfig } from "@/config";
+import Layout from "@/layouts/layout.astro";
+
+import { Content } from "./about-me.mdx";
+
+const title = `About ${siteConfig.author}`;
+---
+
+<Layout title={title} class="flex flex-col gap-y-12">
+    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">{title}</h1>
+
+    <main>
+        <article class="prose prose-foreground w-full lg:prose-lg">
+            <Content />
+        </article>
+    </main>
+</Layout>
