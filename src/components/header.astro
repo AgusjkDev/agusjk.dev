@@ -9,10 +9,11 @@ const { pathname } = Astro.url;
 <header
     data-header-state="closed"
     style="--header-height: 78px; --header-spacing: 16px; background-image: linear-gradient(135deg, rgba(17, 18, 20, 0.75) 5%, rgba(12, 13, 15, 0.9) 75%)"
-    class={cn(
-        "fixed left-1/2 top-[var(--header-spacing)] z-[1] flex h-[var(--header-height)] min-h-[var(--header-height)] w-[calc(100%_-_calc(var(--header-spacing)_*_2))] max-w-screen-xl -translate-x-1/2 flex-col items-center justify-between gap-y-6 overflow-hidden rounded-2xl border border-border p-6 shadow-border-top shadow-border-shadow transition-all duration-300 data-[header-state='open']:min-h-64 sm:flex-row [&_button[data-header-menu-button]>svg]:data-[header-state='open']:fill-foreground",
-        pathname === "/" && "animate-fade-in [animation-delay:3s]",
-    )}
+    class={"shadow-border-top shadow-border-shadow " +
+        cn(
+            "fixed left-1/2 top-[var(--header-spacing)] z-[1] flex h-[var(--header-height)] min-h-[var(--header-height)] w-[calc(100%_-_calc(var(--header-spacing)_*_2))] max-w-screen-xl -translate-x-1/2 flex-col items-center justify-between gap-y-6 overflow-hidden rounded-2xl border border-border p-6 transition-all duration-300 data-[header-state='open']:min-h-64 sm:flex-row [&_button[data-header-menu-button]>svg]:data-[header-state='open']:fill-foreground",
+            pathname === "/" && "animate-fade-in [animation-delay:3s]",
+        )}
 >
     <div class="flex w-full items-center justify-between sm:w-auto">
         <h2 class="text-center font-bold">
