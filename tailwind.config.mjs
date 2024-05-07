@@ -2,7 +2,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import("tailwindcss").Config} */
 export default {
-    content: ["./src/**/*.astro"],
+    content: ["./src/**/*.astro", "./pages/**/*.astro"],
     theme: {
         extend: {
             fontFamily: {
