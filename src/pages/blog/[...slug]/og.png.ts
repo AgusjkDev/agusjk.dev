@@ -32,8 +32,10 @@ export async function GET({
                         style: {
                             color: "#ffffff",
                             fontWeight: "700",
-                            fontSize: "64px",
+                            fontSize: "56px",
                             fontFamily: "Inter",
+                            maxWidth: "40%",
+                            textAlign: "center",
                         },
                         children: data.title,
                     },
@@ -43,8 +45,7 @@ export async function GET({
                     props: {
                         style: {
                             position: "absolute",
-                            bottom: "24px",
-                            right: "24px",
+                            bottom: "36px",
                             color: "#ffffff",
                             fontWeight: "700",
                             fontSize: "24px",
