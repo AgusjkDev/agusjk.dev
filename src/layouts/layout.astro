@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<"div"> {
     metadata: MetadataProps;
 }
 
-const { class: className, metadata } = Astro.props;
+const { class: className, metadata, ...props } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,7 +20,7 @@ const { class: className, metadata } = Astro.props;
     <body>
         <Header />
 
-        <div class={cn("mx-auto mt-[110px] w-[92.5%] max-w-prose py-8", className)}>
+        <div class={cn("mx-auto mt-[110px] w-[92.5%] max-w-prose py-8", className)} {...props}>
             <slot />
         </div>
     </body>
