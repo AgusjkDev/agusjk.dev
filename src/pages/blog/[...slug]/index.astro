@@ -3,8 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 import FormattedDate from "@/components/formatted-date.astro";
 import { siteConfig } from "@/config";
-
-import Layout from "../_layouts/layout.astro";
+import Layout from "@/layouts/layout.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
