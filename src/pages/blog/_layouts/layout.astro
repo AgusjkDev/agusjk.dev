@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import Header from "@/components/header.astro";
+import Metadata from "@/components/metadata.astro";
+import { cn } from "@/lib/utils";
+
+interface Props extends HTMLAttributes<"div"> {
+    title: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <Metadata title={title} />
+    </head>
+
+    <body>
+        <Header />
+
+        <div class={cn("mx-auto mt-[110px] w-[92.5%] max-w-prose py-8", className)}>
+            <slot />
+        </div>
+    </body>
+</html>

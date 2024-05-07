@@ -1,3 +1,4 @@
+import typographyPlugin from "@tailwindcss/typography";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import("tailwindcss").Config} */
@@ -73,7 +74,31 @@ export default {
                     },
                 },
             },
+            typography: () => ({
+                foreground: {
+                    css: {
+                        "--tw-prose-body": "rgb(var(--foreground-muted))",
+                        "--tw-prose-headings": "rgb(var(--foreground))",
+                        "--tw-prose-lead": "rgb(var(--foreground))",
+                        "--tw-prose-links": "rgb(var(--foreground))",
+                        "--tw-prose-bold": "rgb(var(--foreground))",
+                        "--tw-prose-counters": "rgb(var(--foreground))",
+                        "--tw-prose-bullets": "rgb(var(--foreground-muted))",
+                        "--tw-prose-hr": "rgba(var(--border))",
+                        "--tw-prose-quotes": "rgb(var(--foreground-muted))",
+                        "--tw-prose-quote-borders": "rgba(var(--border))",
+                        "--tw-prose-captions": "rgb(var(--foreground))",
+                        "--tw-prose-kbd": "rgb(var(--foreground))",
+                        "--tw-prose-kbd-shadows": "255 255 255",
+                        "--tw-prose-code": "rgb(var(--foreground))",
+                        "--tw-prose-pre-code": "rgb(var(--foreground))",
+                        "--tw-prose-pre-bg": "rgb(var(--foreground))",
+                        "--tw-prose-th-borders": "rgba(var(--border))",
+                        "--tw-prose-td-borders": "rgba(var(--border))",
+                    },
+                },
+            }),
         },
     },
-    plugins: [],
+    plugins: [typographyPlugin],
 };

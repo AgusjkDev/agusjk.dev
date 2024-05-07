@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import { siteConfig } from "@/config";
+
+import PostCard from "./_components/post-card.astro";
+import Layout from "./_layouts/layout.astro";
+
+const title = `${siteConfig.author}'s Blog`;
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime(),
+);
+---
+
+<Layout title={title} class="flex flex-col gap-y-12">
+    <h1 class="text-center text-subtitle shadow-primary/75 drop-shadow-heading">{title}</h1>
+
+    <main class="flex flex-col gap-y-12">
+        {posts.map(post => <PostCard post={post} />)}
+    </main>
+</Layout>
