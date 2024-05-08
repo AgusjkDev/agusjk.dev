@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import { siteConfig } from "@/config";
 
 import "@/styles/globals.css";
@@ -142,3 +144,5 @@ const ogImageSrc = `${canonical}/og.avif`;
 <link rel="icon" href="/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
 <link rel="icon" href="/favicons/favicon.svg" sizes="any" type="image/svg+xml" />
 <link rel="icon" href="/favicons/favicon.ico" sizes="16x16 32x32 64x64" type="image/x-icon" />
+
+<ViewTransitions />
