@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
+
 import type { ImageProps as Props } from "../index";
 ---
 
-<img alt="Dream Duo Logo" src="/imgs/dream-duo.avif" {...Astro.props} />
+<Image alt="Dream Duo Logo" src="/imgs/dream-duo.avif" width={512} height={512} {...Astro.props} />

@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from "astro/types";
 
 export interface Props extends HTMLAttributes<"svg"> {}
-export interface ImageProps extends Omit<HTMLAttributes<"img">, "alt" | "src"> {}
+export interface ImageProps {
+    class?: string;
+}
 export type IconType = (_props: Props) => any;
 export type IconImageType = (_props: ImageProps) => any;
 
