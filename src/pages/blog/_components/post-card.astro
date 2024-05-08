@@ -21,15 +21,15 @@ const dates = [
 
 <article>
     <a
-        class="grid grid-rows-2 overflow-hidden rounded-2xl border border-border transition-opacity duration-300 hover:opacity-85"
+        class="flex flex-col overflow-hidden rounded-2xl border border-border transition-opacity duration-300 hover:opacity-85"
         href={href}
     >
         <Image
             alt={data.title}
             src={`${href}/og.png`}
             class="size-full object-cover"
-            width={1500}
-            height={550}
+            width={2800}
+            height={1600}
             quality={100}
         />
 
@@ -38,7 +38,7 @@ const dates = [
 
             <p class="text-foreground-muted">{data.description}</p>
 
-            <div class="ml-auto mt-auto flex gap-x-8">
+            <div class="ml-auto mt-8 flex gap-x-8">
                 {
                     dates.map(
                         ({ children, date }) =>

@@ -26,8 +26,9 @@ const {
     og = { type: "website" },
 } = Astro.props;
 
-const { origin, href: canonical } = Astro.url;
-const ogImageSrc = og.type === "website" ? `${origin}/imgs/og.avif` : `${canonical}/og.png`;
+const { href } = new URL(Astro.url.pathname, Astro.site!.origin);
+const canonical = href.endsWith("/") ? href.slice(0, -1) : href;
+const ogImageSrc = `${canonical}/og.png`;
 ---
 
 <meta charset="utf-8" />
@@ -49,10 +50,11 @@ const ogImageSrc = og.type === "website" ? `${origin}/imgs/og.avif` : `${canonic
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content=`${canonical}` />
+<meta property="og:url" content={canonical} />
 <meta property="og:site_name" content={siteConfig.author} />
 <meta property="og:locale" content={siteConfig.locale} />
 <meta property="og:image" content={ogImageSrc} />
+<meta property="og:image:alt" content={title} />
 <meta property="og:type" content={og.type} />
 {
     og.type === "article" && (
