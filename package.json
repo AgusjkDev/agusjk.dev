@@ -1,11 +1,12 @@
 {
-    "name": "personal-website",
+    "name": "agusjk.dev",
     "version": "0.0.0",
     "description": "Personal website for myself.",
     "keywords": [
         "personal website",
         "portfolio",
-        "blog"
+        "blog",
+        "about"
     ],
     "author": {
         "name": "Agustín Arnoldi",
@@ -13,7 +14,7 @@
         "url": "https://github.com/agusjkdev"
     },
     "repository": {
-        "url": "git+https://github.com/agusjkdev/personal-website.git"
+        "url": "git+https://github.com/agusjkdev/agusjk.dev.git"
     },
     "type": "module",
     "scripts": {
