@@ -81,7 +81,7 @@ const ogImageSrc = `${canonical}/og.png`;
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
     rel="alternate"
-    href={`${Astro.site}rss.xml`}
+    href={`${Astro.site!.origin}/rss.xml`}
     type="application/rss+xml"
     title={siteConfig.title}
 />
