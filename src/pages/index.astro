@@ -1,6 +1,5 @@
 ---
-import Header from "@/components/header.astro";
-import Metadata from "@/components/metadata.astro";
+import Layout from "@/layouts/layout.astro";
 
 import Footer from "./_components/footer.astro";
 import Hero from "./_components/hero.astro";
@@ -8,22 +7,12 @@ import Knowledgements from "./_components/knowledgements.astro";
 import Projects from "./_components/projects.astro";
 ---
 
-<html lang="en">
-    <head>
-        <Metadata />
-    </head>
+<Layout variant="landing">
+    <Hero />
 
-    <body>
-        <Header />
+    <Knowledgements />
 
-        <div class="mx-auto w-[92.5%] max-w-screen-xl">
-            <Hero />
+    <Projects />
 
-            <Knowledgements />
-
-            <Projects />
-
-            <Footer />
-        </div>
-    </body>
-</html>
+    <Footer />
+</Layout>
