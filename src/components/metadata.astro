@@ -28,7 +28,7 @@ const {
 
 const { href } = new URL(Astro.url.pathname, Astro.site!.origin);
 const canonical = href.endsWith("/") ? href.slice(0, -1) : href;
-const ogImageSrc = `${canonical}/og.png`;
+const ogImageSrc = `${canonical}/og.avif`;
 ---
 
 <meta charset="utf-8" />
@@ -93,72 +93,52 @@ const ogImageSrc = `${canonical}/og.png`;
 
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-180x180.png"
+    href="/favicons/favicon-180x180.png"
     sizes="180x180"
     type="image/png"
 />
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-167x167.png"
+    href="/favicons/favicon-167x167.png"
     sizes="167x167"
     type="image/png"
 />
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-152x152.png"
+    href="/favicons/favicon-152x152.png"
     sizes="152x152"
     type="image/png"
 />
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-144x144.png"
+    href="/favicons/favicon-144x144.png"
     sizes="144x144"
     type="image/png"
 />
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-120x120.png"
+    href="/favicons/favicon-120x120.png"
     sizes="120x120"
     type="image/png"
 />
 <link
     rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-114x114.png"
+    href="/favicons/favicon-114x114.png"
     sizes="114x114"
     type="image/png"
 />
-<link
-    rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-76x76.png"
-    sizes="76x76"
-    type="image/png"
-/>
-<link
-    rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-72x72.png"
-    sizes="72x72"
-    type="image/png"
-/>
-<link
-    rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-60x60.png"
-    sizes="60x60"
-    type="image/png"
-/>
-<link
-    rel="apple-touch-icon"
-    href="/imgs/favicons/favicon-57x57.png"
-    sizes="57x57"
-    type="image/png"
-/>
-<link rel="icon" href="/imgs/favicons/favicon-384x384.png" sizes="384x384" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-256x256.png" sizes="256x256" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-196x196.png" sizes="196x196" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-128x128.png" sizes="128x128" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-96x96.png" sizes="96x96" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-64x64.png" sizes="64x64" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-24x24.png" sizes="24x24" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-<link rel="icon" href="/imgs/favicons/favicon.svg" sizes="any" type="image/svg+xml" />
-<link rel="icon" href="/imgs/favicons/favicon.ico" sizes="16x16 32x32 64x64" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/favicons/favicon-76x76.png" sizes="76x76" type="image/png" />
+<link rel="apple-touch-icon" href="/favicons/favicon-72x72.png" sizes="72x72" type="image/png" />
+<link rel="apple-touch-icon" href="/favicons/favicon-60x60.png" sizes="60x60" type="image/png" />
+<link rel="apple-touch-icon" href="/favicons/favicon-57x57.png" sizes="57x57" type="image/png" />
+<link rel="icon" href="/favicons/favicon-384x384.png" sizes="384x384" type="image/png" />
+<link rel="icon" href="/favicons/favicon-256x256.png" sizes="256x256" type="image/png" />
+<link rel="icon" href="/favicons/favicon-196x196.png" sizes="196x196" type="image/png" />
+<link rel="icon" href="/favicons/favicon-128x128.png" sizes="128x128" type="image/png" />
+<link rel="icon" href="/favicons/favicon-96x96.png" sizes="96x96" type="image/png" />
+<link rel="icon" href="/favicons/favicon-64x64.png" sizes="64x64" type="image/png" />
+<link rel="icon" href="/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="/favicons/favicon-24x24.png" sizes="24x24" type="image/png" />
+<link rel="icon" href="/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+<link rel="icon" href="/favicons/favicon.svg" sizes="any" type="image/svg+xml" />
+<link rel="icon" href="/favicons/favicon.ico" sizes="16x16 32x32 64x64" type="image/x-icon" />

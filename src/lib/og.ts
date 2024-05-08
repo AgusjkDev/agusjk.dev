@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "@vercel/og";
+import sharp from "sharp";
 
 export const COLORS = {
     primary: "52, 35, 166",
@@ -74,7 +75,7 @@ export default async function og({
         },
     };
 
-    return new ImageResponse(html, {
+    const image = new ImageResponse(html, {
         width: 2800,
         height: 1600,
         fonts: [
@@ -86,4 +87,11 @@ export default async function og({
             },
         ],
     });
+
+    return new Response(
+        await sharp(await image.arrayBuffer())
+            .avif()
+            .toBuffer(),
+        { headers: { "Content-Type": "image/avif" } },
+    );
 }

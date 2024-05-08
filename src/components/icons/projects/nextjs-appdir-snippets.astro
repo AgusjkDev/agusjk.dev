@@ -1,13 +1,16 @@
 ---
 import { Image } from "astro:assets";
 
+import nextjsAppdirSnippets from "@/assets/imgs/nextjs-appdir-snippets.avif";
+
 import type { ImageProps as Props } from "../index";
 ---
 
 <Image
     alt="Next.js App Directory Snippets Logo"
-    src="/imgs/nextjs-appdir-snippets.avif"
+    src={nextjsAppdirSnippets}
     width={512}
     height={512}
+    format="avif"
     {...Astro.props}
 />

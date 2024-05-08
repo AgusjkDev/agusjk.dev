@@ -6,13 +6,15 @@ I'm a 19 years old software developer from Córdoba, Argentina 🇦🇷
 
 import { Image } from "astro:assets"
 
+import me from "@/assets/imgs/me.avif"
+
 <figure>
     <Image
         alt="A picture of myself"
-        src="/imgs/me.avif"
+        src={me}
         width={1800}
         height={2399}
-        quality={100}
+        format="avif"
     />
     <figcaption>
         Don't judge me, I was minutes away from presenting my technical high school thesis, I was commited and extremely serious.
