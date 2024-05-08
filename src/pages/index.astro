@@ -1,7 +1,6 @@
 ---
 import Header from "@/components/header.astro";
 import Metadata from "@/components/metadata.astro";
-import { siteConfig } from "@/config";
 
 import Footer from "./_components/footer.astro";
 import Hero from "./_components/hero.astro";
@@ -11,7 +10,7 @@ import Projects from "./_components/projects.astro";
 
 <html lang="en">
     <head>
-        <Metadata title={`${siteConfig.author}'s Website`} og={{ type: "website" }} />
+        <Metadata />
     </head>
 
     <body>

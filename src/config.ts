@@ -3,6 +3,7 @@ import * as SocialIcons from "@/components/icons/socials";
 export const siteConfig = {
     author: "Agustín Arnoldi",
     email: "agusjkdev7@gmail.com",
+    title: "Agustín Arnoldi's Website",
     description:
         "I'm a 19 years old software developer from Córdoba, Argentina 🇦🇷 I started coding back in March 2021, and since then, I've been on an exciting journey of learning and experimenting in the world of software development.",
     keywords: [

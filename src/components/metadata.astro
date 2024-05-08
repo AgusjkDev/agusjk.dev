@@ -4,10 +4,10 @@ import { siteConfig } from "@/config";
 import "@/styles/globals.css";
 
 export interface Props {
-    title: string;
+    title?: string;
     description?: string;
     keywords?: string[];
-    og:
+    og?:
         | {
               type: "website";
           }
@@ -20,10 +20,10 @@ export interface Props {
 }
 
 const {
-    title,
+    title = siteConfig.title,
     description = siteConfig.description,
     keywords = siteConfig.keywords,
-    og,
+    og = { type: "website" },
 } = Astro.props;
 
 const { origin, href: canonical } = Astro.url;
