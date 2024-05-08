@@ -12,7 +12,7 @@ Have you ever wondered how many favicons you need for your website and what each
 
 Favicons have a lot to do with Progressive Web Apps, so please stay tuned.
 
-### How many favicons does my website need?
+## How many favicons does my website need?
 
 It depends in what devices you want to support. But we could say **between 3 and 24**.
 
@@ -27,16 +27,16 @@ Relax, I know, that's a lot for favicons, just let me explain it to you. At the 
 
 There is 5 missing favicons there, the classic `favicon.ico`, an optional `favicon.svg` and the remaining three are just an old web standard. Wait, did I just say 5? That is 25! Yep, thats because one of the Google & Chrome and Windows 8.1 favicons are the same size, so we can at least re-use them.
 
-### The favicons sizes
+## The favicons sizes
 
 Previously we talked about the four favicons categories, now we are going to see all the sizes and what each one is for.
 
-0. #### Standard:
+0. ### Standard:
     - 16x16: All standard browsers
     - 32x32: All standard browsers
     - 64x64: Future use for most standard browsers
 
-1. #### Apple:
+1. ### Apple:
     - 57x57: iPod touch & iPhone up to 3G
     - 60x60: iPhone touch up to iOS7
     - 72x72: iPad touch up to iOS6
@@ -48,17 +48,17 @@ Previously we talked about the four favicons categories, now we are going to see
     - 167x167: iPad retina &#40;newer models&#41;
     - 180x180: iPhone retina &#40;newer models&#41;
 
-2. #### Google & Chrome:
+2. ### Google & Chrome:
     - 96x96: GoogleTV
     - 128x128: Chrome Web Store
     - 196x196: Android Chrome
     - 256x256: Desktop Chrome
     - 384x384: Desktop+ Chrome
 
-3. #### Internet Explorer:
+3. ### Internet Explorer:
     - 24x24: Pinned site
 
-4. #### Windows 8.1:
+4. ### Windows 8.1:
     - 128x128: Small size Metro Tile
     - 270x270: Medium size Metro Tile
     - 558x558: Metro Tile
@@ -82,7 +82,7 @@ Previously we talked about the four favicons categories, now we are going to see
 
     You can put whatever hex color you want inside the TileColor property, it represents the Windows 8.1 Metro Tile background color.
 
-### Adding the favicons to your website
+## Adding the favicons to your website
 
 In your website's HTML file head you will need to insert these link tags:
 ```html
@@ -101,7 +101,7 @@ In your website's HTML file head you will need to insert these link tags:
 
 **You must respect the order shown, that's how browsers load the favicons in best use cases.**
 
-### How to setup Progressive Web Apps
+## How to setup Progressive Web Apps
 
 I'm really sorry, but you will need only 2 more favicons: `192x192` and `512x512`.
 
@@ -121,7 +121,7 @@ First we need to create a file called `manifest.webmanifest` or `manifest.json`,
     - `browser`: a standard browser experience.
 - `icons`: used to define a set of icons for the browser to use on the home screen, app launcher, task switcher, splash screen, and other places.
 
-These properties are just for a minimal configuration, you can read more about this topic <a href="https://web.dev/articles/add-manifest" target="_blank">here</a>.
+These properties are just for a minimal configuration, you can read more about this topic in <a href="https://web.dev/articles/add-manifest" target="_blank">web.dev's article</a>.
 
 Hence our file would look something like this:
 ```jsonc
@@ -140,7 +140,7 @@ Hence our file would look something like this:
 }
 ```
 
-### A small recommendation
+## A small recommendation
 
 A while back, I had to deal with resizing my logo in over 20 sizes and manually creating the PWA manifest. It was a real hassle. So, I made a handy tool called <a href="https://www.npmjs.com/package/favgen-cli" target="_blank">favgen-cli</a> that takes care of all that for you.
 
