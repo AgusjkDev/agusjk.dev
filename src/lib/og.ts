@@ -81,7 +81,7 @@ export default async function og({
         fonts: [
             {
                 name: "Inter",
-                data: (await fs.readFile(path.resolve("./public/fonts/Inter-Bold.woff2"))).buffer,
+                data: (await fs.readFile(path.resolve("./public/fonts/og/Inter-Bold.ttf"))).buffer,
                 weight: 700,
                 style: "normal",
             },
