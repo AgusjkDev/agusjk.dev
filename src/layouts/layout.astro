@@ -18,7 +18,7 @@ const { class: className, metadata = {}, variant = "blog", ...props } = Astro.pr
         <Metadata {...metadata} />
     </head>
 
-    <body>
+    <body class="[&_.animate-fade-in]:[&.no-fade-in]:animate-none">
         <Header />
 
         <div
@@ -31,5 +31,11 @@ const { class: className, metadata = {}, variant = "blog", ...props } = Astro.pr
         >
             <slot />
         </div>
+
+        <script>
+            document.addEventListener("astro:after-swap", () => {
+                document.body.classList.add("no-fade-in");
+            });
+        </script>
     </body>
 </html>
