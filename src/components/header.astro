@@ -63,23 +63,25 @@ const { pathname } = Astro.url;
 </header>
 
 <script>
-    document
-        .querySelector<HTMLButtonElement>("[data-header-menu-button]")!
-        .addEventListener("click", () => {
+    document.addEventListener("astro:page-load", () => {
+        document
+            .querySelector<HTMLButtonElement>("[data-header-menu-button]")!
+            .addEventListener("click", () => {
+                const $header = document.querySelector<HTMLElement>("[data-header-state]")!;
+                const isClosed = $header.getAttribute("data-header-state") === "closed";
+
+                $header.setAttribute("data-header-state", isClosed ? "open" : "closed");
+                // Condition is inverted since we are currently changing it
+                document.documentElement.style.overflow = isClosed ? "hidden" : "auto";
+            });
+
+        window.matchMedia("(min-width: 640px)").addEventListener("change", () => {
             const $header = document.querySelector<HTMLElement>("[data-header-state]")!;
-            const isClosed = $header.getAttribute("data-header-state") === "closed";
 
-            $header.setAttribute("data-header-state", isClosed ? "open" : "closed");
-            // Condition is inverted since we are currently changing it
-            document.documentElement.style.overflow = isClosed ? "hidden" : "auto";
+            if ($header.getAttribute("data-header-state") === "open") {
+                $header.setAttribute("data-header-state", "closed");
+                document.documentElement.style.overflow = "auto";
+            }
         });
-
-    window.matchMedia("(min-width: 640px)").addEventListener("change", () => {
-        const $header = document.querySelector<HTMLElement>("[data-header-state]")!;
-
-        if ($header.getAttribute("data-header-state") === "open") {
-            $header.setAttribute("data-header-state", "closed");
-            document.documentElement.style.overflow = "auto";
-        }
     });
 </script>
